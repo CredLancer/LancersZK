@@ -9,19 +9,26 @@ import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract Credential is   ERC1155, ZKPVerifier,AccessControl {
     uint64 public constant TRANSFER_REQUEST_ID = 1;
-    bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
-
+      
+   bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     mapping(uint256 => address) public idToAddress;
     mapping(address => uint256) public addressToId;
 
-     
+   
 
-    constructor()
-    ERC1155("ipfs://")
-    {   _grantRole(URI_SETTER_ROLE, msg.sender);}
+    error SoulboundTokenCannotBeTransferred();
+    error SoulboundTokenCannotBeApproved();
+    error NotApproved();
+
+    constructor() ERC1155("ipfs://") {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(URI_SETTER_ROLE, msg.sender);
+        _grantRole(MINTER_ROLE, msg.sender);
+    }
+
     function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {
         _setURI(newuri);
-        
     }
 
     function mint(
@@ -29,7 +36,7 @@ contract Credential is   ERC1155, ZKPVerifier,AccessControl {
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public  {
+    ) public onlyRole(MINTER_ROLE) {
         _mint(account, id, amount, data);
     }
 
@@ -38,7 +45,7 @@ contract Credential is   ERC1155, ZKPVerifier,AccessControl {
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
-    ) public {
+    ) public onlyRole(MINTER_ROLE) {
         _mintBatch(to, ids, amounts, data);
     }
 
@@ -52,6 +59,21 @@ contract Credential is   ERC1155, ZKPVerifier,AccessControl {
     {
         return super.supportsInterface(interfaceId);
     }
+
+ 
+  function  _beforeTokenTransfer(
+      address, /* operator */
+        address from,
+        address, /* to */
+        uint256[] memory, /* ids */
+        uint256[] memory, /* amounts */
+        bytes memory /* data */
+    ) internal view override {
+      
+        if (proofs[to][TRANSFER_REQUEST_ID] == false) revert NOProofound();
+        if (from != address(0)) revert SoulboundTokenCannotBeTransferred();
+    }
+ 
     function _beforeProofSubmit(
         uint64, /* requestId */
         uint256[] memory inputs,
@@ -87,17 +109,5 @@ contract Credential is   ERC1155, ZKPVerifier,AccessControl {
         }
     }
 
-    function  _beforeTokenTransfer(
-        address operator,
-        address from,
-        address to,
-        uint256[] memory ids,
-        uint256[] memory amounts,
-        bytes memory data
-    ) internal view override {
-        require(
-            proofs[to][TRANSFER_REQUEST_ID] == true,
-            "only identities who provided proof are allowed to receive tokens"
-        );
-    }
+  
 }
