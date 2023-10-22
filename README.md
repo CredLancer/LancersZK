@@ -9,6 +9,8 @@ While many on-chain talent markets focus on identities and credentials, LancersZ
 
 We make it easy to transact inside the protocol by providing interoperable payments across different chains. And our digital reputation framework preserves privacy in payments, invoicing and encourages anonymous feedback.
 
+Self sovereign identities and verifiable credentials are also a core feature of LancersZK, and we are leveraging Polygon's zkEVM and Polygon ID to make it possible to mint NFT credentials on-chain in a decentralized manner transparent trustless manner.
+
 All these features work well together to create a reimagined workplace for the on-chain future.
 
 ## Problems We're Solving
@@ -31,12 +33,12 @@ profile.
 ## How it's Made
 We used the following technologies to build LancersZK:
 
-- **Chainlink CCIP** - Payments to Lancers can be made either through Polygon or Ethereum to make the crypto transactions much more seamless for the users. We are also using CCIP for cross-chain posting of quests so that the Orgs do not have to switch 
-chains just to post.
-
+- **Chainlink CCIP** - Harness the potential of Chainlink CCIP for frictionless cross-chain transactions, enabling secure and efficient interactions across different blockchain networks. Creating quest which include Payments to Lancers can be made either cross-evm chain to make the crypto transactions much more seamless for the users. We are also using CCIP for cross-chain posting of quests for liquidity effecinacy and better user experience ;Orgs don't have to switch chains just to post.
+- **Polygon ID's Verifiable Credentials**  n ZKHack, we're seamlessly integrating Polygon ID to serve as a means of representing identity-based information as verifiable credentials. This makes Lancers with verified Polygon IDs eligible for minting Credential NFTs, empowering them to participate in any Quest with confidence
 - **Polygon zkEVM** - We are deploying our contracts on Polygon zkEVM for seamless performance, EVM-equivalence, and securing transactions with Ethereum's consensus.
 
 - **Filecoin** - We needed decentralized storage to store files and nft credentials, so we used Filecoin for efficient storage solution. We also leveraged IPFS (InterPlanetary File System) with NFT.storage to ensure fault tolerance and high availability 
 for users' files.
 
 - **The Graph Protocol** - we used subgraphs to query reviews for DAOs and Freelancers, and also query projects of freelancers
+
