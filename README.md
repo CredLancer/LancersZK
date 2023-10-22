@@ -99,6 +99,17 @@ for users' files.
 
 - **The Graph Protocol** - we used subgraphs to query reviews for DAOs and Freelancers, and also query projects of freelancers
 
+
+----------------------------------------------------------------
+
+## Demo/ Gallery 
+
+![Alt text](assets/image-6.png)
+![Alt text](assets/image-1.png)
+![Alt text](assets/image-2.png)
+![Alt text](assets/image-3.png)
+![Alt text](assets/image-4.png)
+![Alt text](assets/image-5.png)
 -----------------
 LancersZK is leading the way in reimagining the freelancing landscape by prioritizing privacy, accuracy, and user experience. Join us on this innovative journey as we revolutionize on-chain work environments and empower users with a trustless, private, and secure platform.
 
