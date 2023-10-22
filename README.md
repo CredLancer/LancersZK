@@ -1,5 +1,5 @@
 # LancersZK
-
+![Alt text](assets/image.png)
 ## Project Description
 LancersZK is a pioneering on-chain freelancing platform that offers a trustless solution for tapping into the talent market, featuring decentralized private payments and verifiable credentials.
 
@@ -29,6 +29,16 @@ job postings.
 - A digital reputation framework ensuring privacy in payments, invoicing, and encouraging anonymous feedback.
 - Self-sovereign identities and verifiable credentials, utilizing Polygon's zkEVM and Polygon ID for decentralized NFT credential minting.
 These features work cohesively to redefine the future of on-chain work environments.
+
+## Project structure
+- `credLancer_cross_chain` has the contracts for :
+  - Cross-chain transactions using chainlink CCIP.
+  - Polygon ID's Verifiable Credentials
+  - Polygon zkEVM
+- `Credlancer_Privacy` has contracts and all logic related to private payments through `TalentLayerID` and `RequestNetwork`
+- `Credlancer_Update` has contracts and all logic related to public payments
+
+
 ## Public and Private payment methods
  LancersZK supports both public and private payments.
 
@@ -64,7 +74,7 @@ We used the following technologies to build LancersZK:
 - **Filecoin** - We needed decentralized storage to store files and nft credentials, so we used Filecoin for efficient storage solution. We also leveraged IPFS (InterPlanetary File System) with NFT.storage to ensure fault tolerance and high availability 
 for users' files.
 
-- **The Graph Protocol** - we used subgraphs to query reviews for DAOs and Freelancers, and also query projects of freelancers
+- **The Graph Protocol** - We used subgraphs to query reviews for DAOs and Freelancers, and also query projects of freelancers
 
 ### Public methods
  Public payments are made through on-chain contracts with cross-chain functionality leveraged by Chainlink CCIP. 
