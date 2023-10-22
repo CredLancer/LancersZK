@@ -23,11 +23,11 @@ job postings.
 
 ## How it Works
 
-Freelancer signs up and writes a basic description and skills list to attract potential clients. There is no credentials on his profile yet, because it will only be filled through NFTs issued by verified organizations.
+1. Freelancer signs up and writes a basic description and skills list to attract potential clients. There is no credentials on his profile yet, because it will only be filled through NFTs issued by verified organizations.
 
-He then applies for 'Quests' by initiating the Waku chat to privately discuss and negotiate the details of the job. The organization funds the escrow before awarding the job to him.
+2. He then applies for 'Quests' by initiating the Waku chat to privately discuss and negotiate the details of the job. The organization funds the escrow before awarding the job to him.
 
-Lancer submits his work by marking the quest completed, which then sends an invoice to the org via Request Network. If approved by the Org, the escrow is released and the platform mints an NFT credential to the Lancer which is then displayed in his 
+3. Lancer submits his work by marking the quest completed, which then sends an invoice to the org via Request Network. If approved by the Org, the escrow is released and the platform mints an NFT credential to the Lancer which is then displayed in his 
 profile.
 
 ## How it's Made
