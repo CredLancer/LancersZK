@@ -64,13 +64,13 @@ contract Credential is   ERC1155, ZKPVerifier,AccessControl {
   function  _beforeTokenTransfer(
       address, /* operator */
         address from,
-        address, /* to */
+        address to ,
         uint256[] memory, /* ids */
         uint256[] memory, /* amounts */
         bytes memory /* data */
     ) internal view override {
       
-        if (proofs[to][TRANSFER_REQUEST_ID] == false) revert NOProofound();
+        if (proofs[to][TRANSFER_REQUEST_ID] == false) revert NotApproved();
         if (from != address(0)) revert SoulboundTokenCannotBeTransferred();
     }
  
